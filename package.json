@@ -1,0 +1,35 @@
+{
+    "name": "mock.local",
+    "version": "0.0.0",
+    "private": true,
+    "description": "本地测试用Mock服务器",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js",
+        "dev": "nodemon app.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/MZIchenjl/Mock.Local.git"
+    },
+    "keywords": [
+        "mock",
+        "express"
+    ],
+    "author": "MZI",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/MZIchenjl/Mock.Local/issues"
+    },
+    "homepage": "https://github.com/MZIchenjl/Mock.Local#readme",
+    "dependencies": {
+        "cors": "^2.8.4",
+        "express": "^4.16.2",
+        "lodash": "^4.17.4",
+        "mockjs": "^1.0.1-beta3",
+        "morgan": "^1.9.0"
+    },
+    "devDependencies": {
+        "nodemon": "^1.12.5"
+    }
+}
