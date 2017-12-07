@@ -4,10 +4,22 @@
 
 ## Usage
 
+安装依赖
+
+```shell
+npm install
+```
+
 启动命令
 
 ```shell
-npm run dev or npm start
+npm run dev
+```
+
+or
+
+```shell
+npm start
 ```
 
 ## 配置文件
