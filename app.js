@@ -4,7 +4,8 @@ const http = require('http'),
   logger = require('morgan'),
   _ = require('lodash'),
   path = require('path'),
-  express = require('express')
+  express = require('express'),
+  compression = require('compression')
 
 const app = express(),
   router = express.Router()
@@ -22,6 +23,8 @@ const ALLOWED_TYPE = [
   ALLOWED_METHOD = [
     'get', 'post', 'put', 'delete', 'patch'
   ]
+
+app.use(compression())
 
 if (_.isObject(corsConfig) && !_.isEmpty(corsConfig)) {
   app.use(cors(corsConfig))
