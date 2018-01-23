@@ -1,28 +1,24 @@
-const http = require('http'),
-  cors = require('cors'),
-  Mock = require('mockjs'),
-  logger = require('morgan'),
-  _ = require('lodash'),
-  path = require('path'),
-  express = require('express'),
-  compression = require('compression')
+const _ = require('lodash')
+const path = require('path')
+const http = require('http')
+const cors = require('cors')
+const Mock = require('mockjs')
+const logger = require('morgan')
+const express = require('express')
+const compression = require('compression')
 
-const app = express(),
-  router = express.Router()
+const app = express()
+const router = express.Router()
 
-const config = require('./config'),
-  {
-    baseURL,
-    apis,
-    cors: corsConfig
-  } = config
+const config = require('./config')
+const {
+  baseURL,
+  apis,
+  cors: corsConfig
+} = config
 
-const ALLOWED_TYPE = [
-    'file', 'mock'
-  ],
-  ALLOWED_METHOD = [
-    'get', 'post', 'put', 'delete', 'patch'
-  ]
+const ALLOWED_TYPE = ['file', 'mock']
+const ALLOWED_METHOD = ['get', 'post', 'put', 'delete', 'patch']
 
 app.use(compression())
 
@@ -32,9 +28,9 @@ if (_.isObject(corsConfig) && !_.isEmpty(corsConfig)) {
 
 for (let i = 0, len = apis.length; i < len; i++) {
   const api = apis[i]
-  const api_url = path.join(api.url),
-    method = _.toLower(api.method),
-    api_type = _.toLower(api.type)
+  const api_url = path.join(api.url)
+  const method = _.toLower(api.method)
+  const api_type = _.toLower(api.type)
   if (!_.includes(ALLOWED_TYPE, api_type)) {
     console.log(`不支持的数据类型 ${api_type}, 请选择${_.join(ALLOWED_TYPE, ', ')}数据类型！`)
     process.exit(1)
@@ -50,8 +46,8 @@ for (let i = 0, len = apis.length; i < len; i++) {
     case 'file':
       {
         app_method((req, res, next) => {
-          const filepath = path.join(__dirname, api.data)
-          return res.sendFile(filepath)
+          const filePath = path.join(__dirname, api.data)
+          return res.sendFile(filePath)
         })
       }
     case 'mock':
@@ -82,4 +78,24 @@ const server = http.createServer(app)
 server.listen(config.port)
 server.on('listening', () => {
   console.log(`Listening on port ${config.port}. http://localhost:${config.port}`)
+})
+server.on('error', error => {
+  if (error.syscall !== 'listen') {
+    throw error
+  }
+  const bind = typeof config.port === 'string' ?
+    'Pipe ' + config.port :
+    'Port ' + config.port
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges')
+      process.exit(1)
+      break
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use')
+      process.exit(1)
+      break
+    default:
+      throw error
+  }
 })
