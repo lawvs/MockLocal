@@ -45,7 +45,7 @@ for (let i = 0, len = apis.length; i < len; i++) {
   }
 
   const app_method = _.bindKey(router, method, api_url)
-  api_list.push(`${_.toUpper(method)} - ${api_url}`)
+  api_list.push(`${_.toUpper(method)} - ${path.join(baseURL, api_url).replace(/\\/g, '/')}`)
   switch (api_type) {
     case 'file':
       {
