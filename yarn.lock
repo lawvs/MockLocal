@@ -1542,8 +1542,8 @@ regex-not@^1.0.0:
     extend-shallow "^2.0.1"
 
 registry-auth-token@^3.0.1:
-  version "3.3.1"
-  resolved "http://registry.npm.taobao.org/registry-auth-token/download/registry-auth-token-3.3.1.tgz#fb0d3289ee0d9ada2cbb52af5dfe66cb070d3006"
+  version "3.3.2"
+  resolved "http://registry.npm.taobao.org/registry-auth-token/download/registry-auth-token-3.3.2.tgz#851fd49038eecb586911115af845260eec983f20"
   dependencies:
     rc "^1.1.6"
     safe-buffer "^5.0.1"
