@@ -26,9 +26,11 @@ if (_.isObject(corsConfig) && !_.isEmpty(corsConfig)) {
   app.use(cors(corsConfig))
 }
 
+const api_list = []
+
 for (let i = 0, len = apis.length; i < len; i++) {
   const api = apis[i]
-  const api_url = path.join(api.url)
+  const api_url = path.join(api.url).replace(/\\/g, '/')
   const method = _.toLower(api.method)
   const api_type = _.toLower(api.type)
   if (!_.includes(ALLOWED_TYPE, api_type)) {
@@ -41,7 +43,9 @@ for (let i = 0, len = apis.length; i < len; i++) {
     process.exit(1)
     break
   }
+
   const app_method = _.bindKey(router, method, api_url)
+  api_list.push(`${_.toUpper(method)} - ${api_url}`)
   switch (api_type) {
     case 'file':
       {
@@ -64,6 +68,11 @@ for (let i = 0, len = apis.length; i < len; i++) {
       break
   }
 }
+
+console.log('==========')
+console.log('[APIURL_LIST]:')
+console.log(api_list.join('\n'))
+console.log('==========')
 
 app.use(logger('dev'))
 
