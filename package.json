@@ -1,12 +1,13 @@
 {
     "name": "mock.local",
-    "version": "0.0.0",
+    "version": "0.0.3",
     "private": true,
     "description": "本地测试用Mock服务器",
     "main": "app.js",
     "scripts": {
         "start": "node app.js",
-        "dev": "nodemon app.js"
+        "dev": "nodemon app.js",
+        "test": "mocha test/index.js"
     },
     "repository": {
         "type": "git",
@@ -31,6 +32,8 @@
         "morgan": "^1.9.0"
     },
     "devDependencies": {
-        "nodemon": "^1.14.11"
+        "mocha": "^5.0.1",
+        "nodemon": "^1.14.11",
+        "supertest": "^3.0.0"
     }
 }

@@ -14,5 +14,11 @@ module.exports = {
     data: {
 
     } // 数据 文件路径或者 mock模板
+  },
+  { // test
+    url: '/test/mock',
+    method: 'get',
+    type: 'mock',
+    data: 'OK!'
   }]
 }

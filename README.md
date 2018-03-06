@@ -22,11 +22,17 @@ or
 npm start
 ```
 
+测试
+
+```
+npm run test
+```
+
 ## 配置文件
 
 使用`config.js`进行配置mock服务器。
 
-### port 
+### port
 
 测试用端口号。
 
