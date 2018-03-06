@@ -1,8 +1,11 @@
 module.exports = {
-  // 测试u端口
+  // 测试端口
   port: 8015,
-  cors: {
-    // cors配置
+  cors: { // cors配置
+    origin: '*',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    preflightContinue: false,
+    optionsSuccessStatus: 204
   },
   // 基础链接
   baseURL: '/api/',
