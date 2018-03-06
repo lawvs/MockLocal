@@ -1,5 +1,7 @@
 # Mock.Local
 
+[![travis-ci](https://travis-ci.org/MZIchenjl/MockLocal.svg?branch=master)](https://travis-ci.org/MZIchenjl/MockLocal)
+
 简易的给前端使用的本地测试用Mock服务器。
 
 ## Usage
