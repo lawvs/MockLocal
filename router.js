@@ -8,8 +8,7 @@ const router = express.Router()
 
 const {
   baseURL,
-  apis,
-  cors: corsConfig
+  apis
 } = config
 
 const ALLOWED_TYPE = ['file', 'mock']
@@ -57,9 +56,8 @@ for (let i = 0, len = apis.length; i < len; i++) {
       break
   }
 }
-
+console.log('[API URLS]')
 console.log('==========')
-console.log('[APIURL_LIST]:')
 console.log(api_list.join('\n'))
 console.log('==========')
 
