@@ -14,7 +14,7 @@ describe('Test MockLocal Results', () => {
       .expect(404, '404 Not Found', done)
   })
 
-  afterEach(() => {
+  after(() => {
     // server close
     server.close()
   })
