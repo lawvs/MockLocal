@@ -8,6 +8,7 @@ const router = express.Router()
 
 const {
   baseURL,
+  name: mock_name,
   apis
 } = config
 
@@ -56,7 +57,7 @@ for (let i = 0, len = apis.length; i < len; i++) {
       break
   }
 }
-console.log('[API URLS]')
+console.log(`[${mock_name || __dirname}]`)
 console.log('==========')
 console.log(api_list.join('\n'))
 console.log('==========')

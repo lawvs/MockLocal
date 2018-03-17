@@ -1,4 +1,5 @@
 module.exports = {
+  name: 'MOCK_TEST', // 项目名称，用以区分
   // 测试端口
   port: 8015,
   cors: { // cors配置
